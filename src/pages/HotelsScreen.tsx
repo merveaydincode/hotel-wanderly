@@ -53,6 +53,10 @@ const styles = StyleSheet.create({
   categoryContainer: {
     marginBottom: 20,
     padding: 10,
+    shadowColor: 'black',
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 5,
   },
   categoryTitle: {
     fontSize: 18,

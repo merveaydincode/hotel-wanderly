@@ -2,7 +2,7 @@ import { AntDesign, Feather, FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { Dimensions } from 'react-native';
-import FavScreen from '../pages/FavScreen';
+import FavoritesScreen from '../pages/FavoritesScreen';
 import HomeScreen from '../pages/HomeScreen';
 import HotelsScreen from '../pages/HotelsScreen';
 import ProfileScreen from '../pages/ProfileScreen';
@@ -35,7 +35,7 @@ const MainNavigator: React.FC = () => {
       />
       <Tab.Screen 
         name="Fav" 
-        component={FavScreen} 
+        component={FavoritesScreen} 
         options={{ tabBarIcon: ({ color }) => (<AntDesign name="hearto" size={24} color={color} />) }} 
       />
       <Tab.Screen 
