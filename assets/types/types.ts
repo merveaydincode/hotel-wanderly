@@ -1,16 +1,5 @@
 // types.ts
 
-// Oda bilgilerini tanımlayan arayüz
-export interface Room {
-    roomId: number;
-    type: string;
-    price: number;
-    bedCount: number;
-    bathroomCount?: number;
-    hasBarbecue?: boolean;
-    hasPool?: boolean;
-    hasKitchen?: boolean;
-  }
 
   export interface Image {
     source: any;
@@ -21,8 +10,11 @@ export interface Room {
     id: number;
     name: string;
     location: string;
+    coordinate: {
+      latitude: number;
+      longitude: number;
+    };
     star: string;
-    rooms: Room[];
     images : Image['source'];
   }
   
