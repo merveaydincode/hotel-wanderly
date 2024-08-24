@@ -14,6 +14,7 @@
       latitude: number;
       longitude: number;
     };
+    price: number;
     star: string;
     images : Image['source'];
   }

@@ -70,10 +70,9 @@ const HotelDetail: React.FC<Props> = ({ route, navigation }) => {
             <MaterialIcons name="chevron-left" size={30} color="black" />
           </TouchableOpacity>
         </View>
-
+        <RoomFacility />
         <HotelDetailText hotel={hotel} />
         <View style={styles.separator} />
-        <RoomFacility />
         <View style={styles.separator} />
         <MapContainer hotel={hotel} />
       </ScrollView>

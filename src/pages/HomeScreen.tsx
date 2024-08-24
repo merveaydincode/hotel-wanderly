@@ -59,7 +59,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
                     <Text style={styles.hotelLocation}>{item.location}</Text>
                   </View>
                   <View style={styles.text1}>
-                    <Text style={styles.hotelPrice}>{item.rooms[0].price}₺</Text>
+                    <Text style={styles.hotelPrice}>{item.price}$</Text>
                     <Text style={styles.hotelPrice1}>/gecelik</Text>
                   </View>
                 </View>

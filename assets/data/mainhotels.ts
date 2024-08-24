@@ -9,7 +9,8 @@ const mainhotels: Hotels = [
       latitude: 20.7984,
       longitude: -156.3319,
     },
-    star: '4,5',
+    star: '4,9',
+    price: 500,
     images:[
       require('../TropicalImage/tr1.png'),
       require('../TropicalImage/Bedroom/tr1bed.png'),
@@ -24,7 +25,8 @@ const mainhotels: Hotels = [
       latitude: -8.3405,
       longitude: 115.2455,
     },
-    star: '4,5',
+    star: '4,3',
+    price: 600,
     images:[
       require('../TreeHouseImage/a2.png'),
       require('../TreeHouseImage/Bedroom/a2bed.png'),
@@ -39,7 +41,8 @@ const mainhotels: Hotels = [
       latitude: 47.6166,
       longitude: 1.5116,
     },
-    star: '4,5',
+    star: '4,0',
+    price: 700,
     images:[
        require('../CastleImage/c3.png'),
        require('../CastleImage/Bedroom/c3bed.png'),
@@ -54,7 +57,8 @@ const mainhotels: Hotels = [
       latitude: 18.7061,
       longitude: 98.9817,
     },
-    star: '4,5',
+    star: '4,2',
+    price: 800,
     images:[
      require('../TropicalImage/tr11.png'),
       require('../TropicalImage/Bedroom/tr11bed.png'),
@@ -70,7 +74,8 @@ const mainhotels: Hotels = [
       latitude: 20.7984,
       longitude:  -156.3319,
     },
-    star: '4,5 değerlendirme',
+    star: '4,5',
+    price: 900,
     images:[
       require('../TropicalImage/tr12.png'),
       require('../TropicalImage/Bedroom/tr12bed.png'),
@@ -85,7 +90,8 @@ const mainhotels: Hotels = [
       latitude: 31.0804,
       longitude: -7.9187,
     },
-    star: '4,5 değerlendirme',
+    star: '3,6 ',
+    price: 1000,
     images:[
       require('../DesertImage/d1.png'),
       require('../DesertImage/Bedroom/d1bed.png'),
@@ -100,7 +106,8 @@ const mainhotels: Hotels = [
       latitude: 64.9631,
       longitude: -19.0208,
     },
-    star: '4,5 değerlendirme',
+    star: '3,5',
+    price: 1100,
     images:[
       require('../NorthImage/k5.png'),
       require('../NorthImage/Bedroom/k5bed.png'),
@@ -115,7 +122,8 @@ const mainhotels: Hotels = [
       latitude: 47.5576,
       longitude: 10.7498,
     },
-    star: '4,5 değerlendirme',
+    star: '4,4',
+    price: 1200,
     images:[
       require('../CastleImage/c2.png'),
       require('../CastleImage/Bedroom/c2bed.png'),
@@ -130,7 +138,8 @@ const mainhotels: Hotels = [
       latitude: -8.3405,
       longitude: 115.2455,
     },
-    star: '4,5 değerlendirme',
+    star: '4,9',
+    price: 1300,
     images:[
       require('../TropicalImage/tr7.png'),
       require('../TropicalImage/Bedroom/tr7bed.png'),
@@ -145,7 +154,8 @@ const mainhotels: Hotels = [
       latitude: -21.2367,
       longitude: -159.7777,
     },
-    star: '4,5 değerlendirme',
+    star: '4,2',
+    price: 1400,
     images:[
       require('../TropicalImage/tr9.png'),
       require('../TropicalImage/Bedroom/tr9bed.png'),
