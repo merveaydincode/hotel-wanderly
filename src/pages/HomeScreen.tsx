@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, ImageBackground, Dimensions, TouchableOpacity, ScrollView , SafeAreaView} from 'react-native';
+import { View, Text, StyleSheet, FlatList, ImageBackground, Dimensions, TouchableOpacity, SafeAreaView } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import CategoryList from '../components/CategoryList';
 import { Hotel } from '../../assets/types/types';
-import mainhotels from '../../assets/data/mainhotels';
 import treehouses from '../../assets/data/treehouses';
+import nordicHouses from '../../assets/data/nordicHouses';
+import tropicalHotels from '../../assets/data/tropicalHotels';
+import castles from '../../assets/data/castles';
+import mainhotels from '../../assets/data/mainhotels';
+import desertHouses from '../../assets/data/desertHotels';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../assets/types/types';
 import { FontAwesome, Entypo, AntDesign } from '@expo/vector-icons';
@@ -18,8 +22,9 @@ type Props = {
   navigation: HomeScreenNavigationProp;
   route: any;
 };
-const { width, height } = Dimensions.get('window');
-const categories = ['Hotel', 'Ağaç Evler', 'Kuzey Evleri','Tropik Evler', 'Şatolar', 'Çöl Evleri']; // Kategori listesi
+
+const { width } = Dimensions.get('window');
+const categories = ['Hotel', 'Ağaç Evler', 'Kuzey Evleri', 'Tropik Evler', 'Şatolar', 'Çöl Evleri']; 
 
 const HomeScreen: React.FC<Props> = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -34,13 +39,30 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
   };
 
   useEffect(() => {
-    let hotels = [];
-    if (selectedCategory === 'Ağaç Evler') {
-      hotels = treehouses;
-    } else {
-      hotels = mainhotels;
+    let hotels;
+
+    // Kategoriye göre doğru veriyi ayarla
+    switch (selectedCategory) {
+      case 'Ağaç Evler':
+        hotels = treehouses;
+        break;
+      case 'Kuzey Evleri':
+        hotels = nordicHouses;
+        break;
+      case 'Tropik Evler':
+        hotels = tropicalHotels;
+        break;
+      case 'Şatolar':
+        hotels = castles;
+        break;
+      case 'Çöl Evleri':
+        hotels = desertHouses;
+        break;
+      default:
+        hotels = mainhotels;
     }
 
+    // Arama sorgusuna göre filtrele
     if (searchQuery) {
       setFilteredHotels(hotels.filter(hotel => hotel.name.toLowerCase().includes(searchQuery.toLowerCase())));
     } else {
@@ -54,6 +76,37 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
 
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
+
+    // "Hotel" kategorisi seçildiğinde mainhotels verilerini göster
+    if (category === 'Hotel') {
+      setFilteredHotels(mainhotels);
+      return;
+    }
+
+    // Veriyi kategoriye göre ayarla
+    let data;
+    switch (category) {
+      case 'Ağaç Evler':
+        data = treehouses;
+        break;
+      case 'Kuzey Evleri':
+        data = nordicHouses;
+        break;
+      case 'Tropik Evler':
+        data = tropicalHotels;
+        break;
+      case 'Şatolar':
+        data = castles;
+        break;
+      case 'Çöl Evleri':
+        data = desertHouses;
+        break;
+      default:
+        data = mainhotels;
+    }
+
+    // Kategoriler ekranına git ve veriyi gönder
+    navigation.navigate('Home', { screen: 'CategoriesScreen', params: { category, data } } as never);
   };
 
   return (
@@ -64,59 +117,56 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
         selectedCategory={selectedCategory}
         onSelectCategory={handleCategorySelect}
       />
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <View style={styles.listContainer}>
-          <FlatList
-            data={filteredHotels}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                style={styles.hotelContainer}
-                onPress={() => navigation.navigate('HotelDetail', { hotel: item })}
-              >
-                <ImageBackground
-                  source={item.images[0]} 
-                  style={styles.imageBackground}
-                >
-                  <View style={styles.icon}>
-                    <TouchableOpacity onPress={() => handleFavoritePress(item)}>
-                      <AntDesign
-                        name={favorites.some(favHotel => favHotel.id === item.id) ? "heart" : "hearto"}
-                        size={20}
-                        color={favorites.some(favHotel => favHotel.id === item.id) ? "red" : "black"}
-                      />
-                    </TouchableOpacity>
+      <FlatList
+        contentContainerStyle={styles.scrollContainer}
+        data={filteredHotels}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.hotelContainer}
+            onPress={() => navigation.navigate('HotelDetail', { hotel: item })}
+          >
+            <ImageBackground
+              source={item.image} 
+              style={styles.imageBackground}
+            >
+              <View style={styles.icon}>
+                <TouchableOpacity onPress={() => handleFavoritePress(item)}>
+                  <AntDesign
+                    name={favorites.some(favHotel => favHotel.id === item.id) ? "heart" : "hearto"}
+                    size={20}
+                    color={favorites.some(favHotel => favHotel.id === item.id) ? "red" : "black"}
+                  />
+                </TouchableOpacity>
+              </View>
+              <View style={styles.textcontainer}>
+                <View style={styles.text}>
+                  <Text style={styles.hotelName}>{item.name}</Text>
+                  <View style={styles.iconloc}>
+                    <Entypo name="location-pin" size={20} color="black" />
                   </View>
-                  <View style={styles.textcontainer}>
-                    <View style={styles.text}>
-                      <Text style={styles.hotelName}>{item.name}</Text>
-                      <View style={styles.iconloc}>
-                        <Entypo name="location-pin" size={20} color="black" />
-                      </View>
-                      <Text style={styles.hotelLocation}>{item.location}</Text>
-                      <View style={styles.iconstar}>
-                        <FontAwesome name="star-half-empty" size={18} color="green" />
-                      </View>
-                      <Text style={styles.hotelstar}>{item.star}</Text>
-                    </View>
-                    <View style={styles.text1}>
-                      <Text style={styles.hotelPrice}>{item.price}$</Text>
-                      <Text style={styles.hotelPrice1}>/gecelik</Text>
-                    </View>
+                  <Text style={styles.hotelLocation}>{item.location}</Text>
+                  <View style={styles.iconstar}>
+                    <FontAwesome name="star-half-empty" size={18} color="green" />
                   </View>
-                </ImageBackground>
-              </TouchableOpacity>
-            )}
-            ListEmptyComponent={
-              searchQuery && (
-                <View style={styles.emptyContainer}>
-                  <Text style={styles.emptyText}>Arama sonuçları bulunamadı.</Text>
+                  <Text style={styles.hotelstar}>{item.star}</Text>
                 </View>
-              )
-            }
-          />
-        </View>
-      </ScrollView>
+                <View style={styles.text1}>
+                  <Text style={styles.hotelPrice}>{item.price}$</Text>
+                  <Text style={styles.hotelPrice1}>/gecelik</Text>
+                </View>
+              </View>
+            </ImageBackground>
+          </TouchableOpacity>
+        )}
+        ListEmptyComponent={
+          searchQuery && (
+            <View style={styles.emptyContainer}>
+              <Text style={styles.emptyText}>Arama sonuçları bulunamadı.</Text>
+            </View>
+          )
+        }
+      />
     </SafeAreaView>
   );
 };
@@ -127,9 +177,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   scrollContainer: {
-    flexGrow: 1,
-    top: 60,
     paddingBottom: 40,
+    alignItems: 'center',
+    paddingTop: 60,
   },
   listContainer: {
     width: '100%',
@@ -223,6 +273,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 20,
   },
   emptyText: {
     fontSize: 18,
