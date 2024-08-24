@@ -91,7 +91,7 @@ const mainhotels: Hotels = [
       longitude: -7.9187,
     },
     star: '3,6 ',
-    price: 1000,
+    price: 550,
     images:[
       require('../DesertImage/d1.png'),
       require('../DesertImage/Bedroom/d1bed.png'),
@@ -107,7 +107,7 @@ const mainhotels: Hotels = [
       longitude: -19.0208,
     },
     star: '3,5',
-    price: 1100,
+    price: 640,
     images:[
       require('../NorthImage/k5.png'),
       require('../NorthImage/Bedroom/k5bed.png'),
@@ -123,7 +123,7 @@ const mainhotels: Hotels = [
       longitude: 10.7498,
     },
     star: '4,4',
-    price: 1200,
+    price: 420,
     images:[
       require('../CastleImage/c2.png'),
       require('../CastleImage/Bedroom/c2bed.png'),
@@ -139,7 +139,7 @@ const mainhotels: Hotels = [
       longitude: 115.2455,
     },
     star: '4,9',
-    price: 1300,
+    price: 300,
     images:[
       require('../TropicalImage/tr7.png'),
       require('../TropicalImage/Bedroom/tr7bed.png'),
@@ -155,7 +155,7 @@ const mainhotels: Hotels = [
       longitude: -159.7777,
     },
     star: '4,2',
-    price: 1400,
+    price: 400,
     images:[
       require('../TropicalImage/tr9.png'),
       require('../TropicalImage/Bedroom/tr9bed.png'),

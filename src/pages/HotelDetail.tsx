@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     color: 'black',
-    paddingLeft: 25,
+    paddingLeft: 23,
     top: 8,
   },
   night: {
