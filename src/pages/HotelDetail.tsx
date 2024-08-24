@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
-import HotelDetailText from '../components/HotelDetailText';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../assets/types/types';
 import MapContainer from '../components/MapContainer';
 import RoomFacility from '../components/RoomFacility';
 import { MaterialIcons } from '@expo/vector-icons';
+import RulesText from '../components/RulesText';
+import HotelDetailText from '../components/HotelDetailText';
 
 type HotelDetailRouteProp = RouteProp<RootStackParamList, 'HotelDetail'>;
 type HotelDetailNavigationProp = StackNavigationProp<RootStackParamList, 'HotelDetail'>;
@@ -70,19 +71,25 @@ const HotelDetail: React.FC<Props> = ({ route, navigation }) => {
             <MaterialIcons name="chevron-left" size={30} color="black" />
           </TouchableOpacity>
         </View>
-        <RoomFacility />
+
         <HotelDetailText hotel={hotel} />
         <View style={styles.separator} />
+        <RoomFacility />
         <View style={styles.separator} />
         <MapContainer hotel={hotel} />
+        <RulesText />
       </ScrollView>
-
+      
+      <View style={styles.checkout} >
+      <Text style={styles.price}>{hotel.price}$</Text>
+      <Text style={styles.night}>/gecelik</Text>
       <TouchableOpacity
         style={styles.reserveButton}
         onPress={() => navigation.navigate('RezScreen', { hotel })}
       >
         <Text style={styles.reserveText}>Rezervasyon Yap</Text>
       </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -90,7 +97,6 @@ const HotelDetail: React.FC<Props> = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
   },
   scrollViewContent: {
     flexGrow: 1,
@@ -132,19 +138,45 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginVertical: 10,
   },
+  checkout: {
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom:0,
+    width: width,
+    height: height / 10,
+    backgroundColor: 'white',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
   reserveButton: {
     position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#f9bc2b',
+    bottom: 20,
+    width: width / 2.3,
+    height: height / 17,
+    backgroundColor: 'green',
     padding: 15,
+    borderRadius: 20,
+    justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
+    right: 15,
   },
   reserveText: {
     color: 'white',
+    fontWeight: '600',
+    fontSize: 18,
+  },
+  price: {
+    fontSize: 25,
     fontWeight: 'bold',
+    color: 'black',
+    paddingLeft: 25,
+    top: 8,
+  },
+  night: {
+    fontSize: 17,
+    color: 'black',
+    paddingLeft: 90,
+    bottom: 10,
   },
 });
 

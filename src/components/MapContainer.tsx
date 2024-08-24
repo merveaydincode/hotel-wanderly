@@ -14,8 +14,8 @@ const MapContainer: React.FC<Props> = ({ hotel }) => {
   const initialRegion = {
     latitude: hotel.coordinate.latitude,
     longitude: hotel.coordinate.longitude,
-    latitudeDelta: 0.1,
-    longitudeDelta: 0.1,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
   };
 
   return (
