@@ -5,7 +5,7 @@ import HomeNavigator from './HomeNavigator';
 import MainNavigator from './MainNavigator';
 import HotelDetail from '../pages/HotelDetail';
 import RezScreen from '../pages/RezScreen';
-import CategoriesScreen from '../pages/CategoriesScreen';
+import HomeScreen from '../pages/HomeScreen';
 
 const Stack = createStackNavigator();
 
@@ -14,11 +14,10 @@ const RootNavigator: React.FC = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Auth" component={AuthNavigator} />
       <Stack.Screen name="Main" component={MainNavigator} />
-      <Stack.Screen name="Home" component={HomeNavigator} />
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="HotelDetail" component={HotelDetail} />
       <Stack.Screen name="RezScreen" component={RezScreen} />
-      <Stack.Screen name="CategoriesScreen" component={CategoriesScreen} />
-    </Stack.Navigator>
+     </Stack.Navigator>
   );
 };
 

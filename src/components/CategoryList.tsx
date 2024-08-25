@@ -1,4 +1,3 @@
-// components/CategoryList.tsx
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 
@@ -34,15 +33,11 @@ const CategoryList: React.FC<Props> = ({ categories, selectedCategory, onSelectC
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
     flexDirection: 'row',
     padding: 10,
     backgroundColor: 'white',
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
-    position: 'absolute',
-    top: 115,
-    zIndex: 100,
     width: '100%',
   },
   categoryButton: {
@@ -52,7 +47,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#f0f0f0',
     height: 40,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
   selectedCategory: {
     backgroundColor: 'green',
