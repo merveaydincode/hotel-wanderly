@@ -2,6 +2,7 @@
 
 import { Hotels } from '../types/types';
 
+
 const treehouses: Hotels = [
   {
     id: 1,
@@ -9,8 +10,8 @@ const treehouses: Hotels = [
     location: 'Yunanistan',
     image: require('../TreeHouseImage/a1.png'),
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 37.8572,
+      longitude: 20.7144
     },
     price: 400,
     star: '4,0',
@@ -26,8 +27,8 @@ const treehouses: Hotels = [
     location: 'Gürcistan',
     image: require('../TreeHouseImage/a2.png'),
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 41.9956,
+      longitude: 42.0925
     },
     price: 300,
     star: '4,3',
@@ -43,8 +44,8 @@ const treehouses: Hotels = [
     location: 'Fethiye, Türkiye',
     image: require('../TreeHouseImage/a3.png'),
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 36.6316,
+      longitude: 29.1332
     },
     price: 500,
     star: '3,4',
@@ -60,8 +61,8 @@ const treehouses: Hotels = [
     location: 'Corfu, Yunanistan',
     image: require('../TreeHouseImage/a4.png'),
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 39.7131,
+      longitude: 19.8186
     },
     price: 600,
     star: '3,7',
@@ -77,8 +78,8 @@ const treehouses: Hotels = [
     location: 'Keda, Gürcistan',
     image: require('../TreeHouseImage/a5.png'),
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 41.5591,
+      longitude: 41.9563
     },
     price: 700,
     star: '3,9',
@@ -94,8 +95,8 @@ const treehouses: Hotels = [
     location: 'Bertea, Romanya',
     image: require('../TreeHouseImage/a6.png'),
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 45.2133,
+      longitude: 25.7773
     },
     price: 200,
     star: '4,2',
@@ -111,8 +112,8 @@ const treehouses: Hotels = [
     location: 'Çayırdüzü, Türkiye',
     image: require('../TreeHouseImage/a7.png'),
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 40.6635,
+      longitude: 37.1212
     },
     price: 500,
     star: '3,1',
@@ -128,8 +129,8 @@ const treehouses: Hotels = [
     location: 'Vanato, Yunanistan',
     image: require('../TreeHouseImage/a8.png'),
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 37.8067,
+      longitude: 20.7718
     },
     price: 400,
     star: '4,3',
@@ -145,8 +146,8 @@ const treehouses: Hotels = [
     location: 'Jesenice, Çekya',
     image: require('../TreeHouseImage/a9.png'),
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 49.9667,
+      longitude: 14.3367
     },
     price: 800,
     star: '4,2',
@@ -162,8 +163,8 @@ const treehouses: Hotels = [
     location: 'Jesenice, Çekya',
     image: require('../TreeHouseImage/a10.png'),
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 49.9667,
+      longitude: 14.3367
     },
     price: 700,
     star: '4,4',
@@ -176,3 +177,4 @@ const treehouses: Hotels = [
 ];
 
 export default treehouses;
+
