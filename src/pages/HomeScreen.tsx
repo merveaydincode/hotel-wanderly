@@ -78,11 +78,6 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
     setSelectedCategory(category);
   };
 
-  const handleBackToHotel = () => {
-    setSelectedCategory('Hotel');
-    setFilteredHotels(mainhotels); // mainhotels'i yeniden ayarla
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <SearchBar value={searchQuery} onChangeText={handleSearch} placeholder="Ara..." />
