@@ -17,7 +17,6 @@
     price: number;
     star: string;
     images : Image['source'];
-    image: Image['source'];
   }
   
   export type Hotels = Hotel[];

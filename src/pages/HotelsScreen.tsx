@@ -1,36 +1,51 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, Image, Dimensions, SafeAreaView, ScrollView } from 'react-native';
-import { Hotels } from '../../assets/types/types';
+import { View, Text, FlatList, StyleSheet, Image, Dimensions, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import { Hotels, Hotel, RootStackParamList } from '../../assets/types/types';
 import tropicalHotels from '../../assets/data/tropicalHotels';
 import desertHotels from '../../assets/data/desertHotels';
 import treehouses from '../../assets/data/treehouses';
 import nordicHouses from '../../assets/data/nordicHouses';
 import castles from '../../assets/data/castles';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 const { width } = Dimensions.get('window');
 
-const categories = [
-  { title: 'Tropik Evler', data: tropicalHotels },
-  { title: 'Çöl Evleri', data: desertHotels },
-  { title: 'Ağaç Evler', data: treehouses },
-  { title: 'Kuzey Evleri', data: nordicHouses },
-  { title: 'Şatolar', data: castles },
-];
+type HotelsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Hotels'>;
 
-const renderHotelItem = ({ item }: { item: Hotels[0] }) => (
-  <View style={styles.hotelContainer}>
-    <Image source={item.image} style={styles.hotelImage} />
-    <Text style={styles.hotelName}>{item.name}</Text>
-  </View>
-);
+type Props = {
+  navigation: HotelsScreenNavigationProp;
+};
 
-const HotelsScreen = () => {
+const HotelsScreen: React.FC<Props> = ({ navigation }) => {
+  const categories = [
+    { title: 'Tropik Evler', data: tropicalHotels },
+    { title: 'Ağaç Evler', data: treehouses },
+    { title: 'Kuzey Evleri', data: nordicHouses },
+    { title: 'Şatolar', data: castles },
+    { title: 'Çöl Evleri', data: desertHotels },
+  ];
+
+  const handleCategoryPress = (categoryTitle: string, hotels: Hotel[]) => {
+    navigation.navigate('CategoryHotels', { category: categoryTitle, hotels });
+  };
+
+  const renderHotelItem = ({ item }: { item: Hotel }) => (
+    <View style={styles.hotelContainer}>
+      <Image source={item.images[0]} style={styles.hotelImage} />
+      <Text style={styles.hotelName}>{item.name}</Text>
+    </View>
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         {categories.map((category, index) => (
           <View key={index} style={styles.categoryContainer}>
-            <Text style={styles.categoryTitle}>{category.title}</Text>
+            <TouchableOpacity
+              onPress={() => handleCategoryPress(category.title, category.data)}
+            >
+              <Text style={styles.categoryTitle}>{category.title}</Text>
+            </TouchableOpacity>
             <FlatList
               data={category.data}
               renderItem={renderHotelItem}

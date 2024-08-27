@@ -8,7 +8,6 @@ const treehouses: Hotels = [
     id: 1,
     name: 'Ağaç ev, Zakynthos, Yunanistan',
     location: 'Yunanistan',
-    image: require('../TreeHouseImage/a1.png'),
     coordinate: {
       latitude: 37.8572,
       longitude: 20.7144
@@ -25,7 +24,6 @@ const treehouses: Hotels = [
     id: 2,
     name: 'Treehouse Zemo Khiza, Gürcistan',
     location: 'Gürcistan',
-    image: require('../TreeHouseImage/a2.png'),
     coordinate: {
       latitude: 41.9956,
       longitude: 42.0925
@@ -42,7 +40,6 @@ const treehouses: Hotels = [
     id: 3,
     name: 'Ağaç ev, Fethiye, Türkiye',
     location: 'Fethiye, Türkiye',
-    image: require('../TreeHouseImage/a3.png'),
     coordinate: {
       latitude: 36.6316,
       longitude: 29.1332
@@ -59,7 +56,6 @@ const treehouses: Hotels = [
     id: 4,
     name: 'Ağaç ev, Ano Korakiana, Corfu, Yunanistan',
     location: 'Corfu, Yunanistan',
-    image: require('../TreeHouseImage/a4.png'),
     coordinate: {
       latitude: 39.7131,
       longitude: 19.8186
@@ -76,7 +72,6 @@ const treehouses: Hotels = [
     id: 5,
     name: 'Ağaç ev, Keda, Gürcistan',
     location: 'Keda, Gürcistan',
-    image: require('../TreeHouseImage/a5.png'),
     coordinate: {
       latitude: 41.5591,
       longitude: 41.9563
@@ -93,7 +88,6 @@ const treehouses: Hotels = [
     id: 6,
     name: 'Ağaç ev, Bertea, Romanya',
     location: 'Bertea, Romanya',
-    image: require('../TreeHouseImage/a6.png'),
     coordinate: {
       latitude: 45.2133,
       longitude: 25.7773
@@ -110,7 +104,6 @@ const treehouses: Hotels = [
     id: 7,
     name: 'Treehouse, Çayırdüzü, Türkiye',
     location: 'Çayırdüzü, Türkiye',
-    image: require('../TreeHouseImage/a7.png'),
     coordinate: {
       latitude: 40.6635,
       longitude: 37.1212
@@ -127,7 +120,6 @@ const treehouses: Hotels = [
     id: 8,
     name: 'Tüm ev, Vanato, Yunanistan',
     location: 'Vanato, Yunanistan',
-    image: require('../TreeHouseImage/a8.png'),
     coordinate: {
       latitude: 37.8067,
       longitude: 20.7718
@@ -144,7 +136,6 @@ const treehouses: Hotels = [
     id: 9,
     name: 'Ağaç ev, Jesenice, Çekya',
     location: 'Jesenice, Çekya',
-    image: require('../TreeHouseImage/a9.png'),
     coordinate: {
       latitude: 49.9667,
       longitude: 14.3367
@@ -161,7 +152,6 @@ const treehouses: Hotels = [
     id: 10,
     name: 'Ağaç ev, Jesenice, Çekya',
     location: 'Jesenice, Çekya',
-    image: require('../TreeHouseImage/a10.png'),
     coordinate: {
       latitude: 49.9667,
       longitude: 14.3367

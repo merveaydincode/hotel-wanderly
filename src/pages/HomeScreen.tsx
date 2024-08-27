@@ -16,7 +16,6 @@ import castles from '../../assets/data/castles';
 import mainhotels from '../../assets/data/mainhotels';
 import desertHouses from '../../assets/data/desertHotels';
 
-
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 type Props = {
@@ -97,16 +96,28 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
                 onPress={() => navigation.navigate('HotelDetail', { hotel: item })}
               >
                 <ImageBackground
-                  source={item.image}
+                  source={item.images[0]}
                   style={styles.imageBackground}
                 >
+                  <TouchableOpacity
+                    style={styles.heartIconContainer}
+                    onPress={() => handleFavoritePress(item)}
+                  >
+                    <View style={styles.heartview}>
+                    <AntDesign
+                      name={favorites.find(hotel => hotel.id === item.id) ? 'heart' : 'hearto'}
+                      size={24}
+                      color="#FA8072"
+                    />
+                    </View>
+                  </TouchableOpacity>
                   <View style={styles.infoContainer}>
                     <View style={styles.header}>
                       <Text style={styles.hotelName}>{item.name}</Text>
                     </View>
                     <View style={styles.loc}>
-                    <EvilIcons name="location" size={22} color="white" />
-                    <Text style={styles.hotelLocation}>{item.location}</Text>
+                      <EvilIcons name="location" size={22} color="white" />
+                      <Text style={styles.hotelLocation}>{item.location}</Text>
                     </View>
                     <View style={styles.stars}>
                       <AntDesign name="star" size={14} color="white" />
@@ -138,8 +149,8 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flexGrow: 1,
-    paddingBottom: 40,
-    paddingTop: 60,
+    paddingBottom: 10,
+    paddingTop: 10,
   },
   listContainer: {
     width: '100%',
@@ -157,6 +168,11 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'flex-end',
   },
+  heartIconContainer: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+  },
   infoContainer: {
     flexDirection: 'column',
     backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
@@ -167,6 +183,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+  heartview: {
+ backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    padding: 10,
+    borderRadius: 50,
   },
   hotelName: {
     color: 'white',
@@ -191,7 +212,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     marginLeft: 3,
-  
   },
   hotelPrice: {
     color: 'white',
@@ -200,7 +220,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10,
     bottom: 10,
-
   },
   emptyContainer: {
     flex: 1,

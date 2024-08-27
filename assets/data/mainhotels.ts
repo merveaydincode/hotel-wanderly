@@ -3,164 +3,183 @@ import { Hotels } from '../types/types';
 const mainhotels: Hotels = [
   {
     id: 1,
-    name: 'Lagoon Breeze Resort',
-    location: 'Maui, Hawaii',
+    name: 'Crystal, Ko Tao, Tayland',
+    location: 'Ko Tao, Tayland',
     coordinate: {
-      latitude: 20.7984,
-      longitude: -156.3319,
+      latitude: 10.1025,
+      longitude: 99.8442
     },
-    star: '4,9',
-    price: 500,
-    images:[
-      require('../TropicalImage/tr1.png'),
-      require('../TropicalImage/Bedroom/tr1bed.png'),
-      require('../TropicalImage/Bath/tr1bath.png'),
-    ],
+    price: 200,
+    star: '4,2',
+    images: [
+      require('../TropicalImage/tr9.png'),
+      require('../TropicalImage/Bath/tr9bath.png'),
+      require('../TropicalImage/Garden/tr9garden.png'),
+      require('../TropicalImage/Kitchen/tr9kit.png'),
+      require('../TropicalImage/Bedroom/tr9bed.png'),
+    ]
   },
   {
     id: 2,
-    name: 'Treehouse Retreat',
-    location: 'Bali, Endonezya',
+    name: 'Şato, Kalamata, Yunanistan',
+    location: 'Yunanistan',
     coordinate: {
-      latitude: -8.3405,
-      longitude: 115.2455,
+      latitude: 37.0391,
+      longitude: 22.1125
     },
-    star: '4,3',
-    price: 600,
-    images:[
-      require('../TreeHouseImage/a2.png'),
-      require('../TreeHouseImage/Bedroom/a2bed.png'),
-      require('../TreeHouseImage/Bath/a2bath.png'),
-    ],
+    price: 400,
+    star: '4,2',
+    images: [
+      require('../CastleImage/c4.png'),
+      require('../CastleImage/Bedroom/c4bed.png'),
+      require('../CastleImage/Bath/c4bath.png'),
+      require('../CastleImage/Garden/c4garden.png'),
+      require('../CastleImage/Kitchen/c4kit.png'),
+    ]
   },
   {
     id: 3,
-    name: 'Château de Chambord',
-    location: 'Loir-et-Cher, France',
+    name: 'Saint-Chartier, Fransa bölgesinde oda',
+    location: 'Fransa',
     coordinate: {
-      latitude: 47.6166,
-      longitude: 1.5116,
+      latitude: 46.6428,
+      longitude: 2.0517
     },
-    star: '4,0',
-    price: 700,
-    images:[
-       require('../CastleImage/c3.png'),
-       require('../CastleImage/Bedroom/c3bed.png'),
-       require('../CastleImage/Bath/c3bath.png'),
-    ],
+    price: 600,
+    star: '3,7',
+    images: [
+      require('../CastleImage/c7.png'),
+      require('../CastleImage/Bedroom/c7bed.png'),
+      require('../CastleImage/Bath/c7bath.png'),
+      require('../CastleImage/Garden/c7garden.png'),
+      require('../CastleImage/Kitchen/c7kit.png'),
+    ]
   },
   {
     id: 4,
-    name: 'Chiang Mai Boutique Hotel',
-    location: 'Chiang Mai, Tayland',
+    name: 'Çadır içinde özel oda, Beer Milka, İsrail',
+    location: 'İsrail',
     coordinate: {
-      latitude: 18.7061,
-      longitude: 98.9817,
+      latitude: 30.8922,
+      longitude: 34.4331
     },
-    star: '4,2',
-    price: 800,
-    images:[
-     require('../TropicalImage/tr11.png'),
-      require('../TropicalImage/Bedroom/tr11bed.png'),
-      require('../TropicalImage/Bath/tr11bath.png'),
-    ],
- 
-  },
-  {
-    id: 5,
-    name: 'Lagoon Breeze Resort',
-    location: 'Maui, Hawaii',
-    coordinate: {
-      latitude: 20.7984,
-      longitude:  -156.3319,
-    },
-    star: '4,5',
-    price: 900,
-    images:[
-      require('../TropicalImage/tr12.png'),
-      require('../TropicalImage/Bedroom/tr12bed.png'),
-      require('../TropicalImage/Bath/tr12bath.png'),
-    ],
-  },
-  {
-    id: 6,
-    name: 'Sahara Oasis Villa',
-    location: 'Sahra Çölü, Fas',
-    coordinate: {
-      latitude: 31.0804,
-      longitude: -7.9187,
-    },
-    star: '3,6 ',
-    price: 550,
-    images:[
+    price: 350,
+    star: '4,6',
+    images: [
       require('../DesertImage/d1.png'),
       require('../DesertImage/Bedroom/d1bed.png'),
       require('../DesertImage/Bath/d1bath.png'),
-    ],
+      require('../DesertImage/Kitchen/d1kit.png'),
+      require('../DesertImage/Garden/d1garden.png'),
+    ]
+  },
+  {
+    id: 5,
+    name: 'Sunset Baraka, Balian Beach, Endonezya',
+    location: 'Balian Beach, Endonezya',
+    coordinate: {
+      latitude: -8.5442,
+      longitude: 114.8790
+    },
+    price: 500,
+    star: '4,8',
+    images: [
+      require('../TropicalImage/tr3.png'),
+      require('../TropicalImage/Bath/tr3bath.png'),
+      require('../TropicalImage/Garden/tr3garden.png'),
+      require('../TropicalImage/Kitchen/tr3kit.png'),
+      require('../TropicalImage/Bedroom/tr3bed.png'),
+    ]
+  },
+  {
+    id: 6,
+    name: 'Winter Wonderland, Finlandiya',
+    location: 'Ilomantsi, Finlandiya',
+    coordinate: {
+      latitude: 62.6667,
+      longitude: 30.9167
+    },
+    price: 350,
+    star: '3,7',
+    images: [
+      require('../NorthImage/k7.png'),
+      require('../NorthImage/Garden/k7garden.png'),
+      require('../NorthImage/Kitchen/k7kit.png'),
+      require('../NorthImage/Bedroom/k7bed.png'),
+      require('../NorthImage/Bath/k7bath.png'),
+    ]
   },
   {
     id: 7,
-    name: 'Aurora Cabin',
-    location: 'İzlanda',
+    name: 'Tüm kiralık konut, Highland, Birleşik Krallık',
+    location: 'Birleşik Krallık',
     coordinate: {
-      latitude: 64.9631,
-      longitude: -19.0208,
+      latitude: 57.4791,
+      longitude: -4.2247
     },
-    star: '3,5',
-    price: 640,
-    images:[
-      require('../NorthImage/k5.png'),
-      require('../NorthImage/Bedroom/k5bed.png'),
-      require('../NorthImage/Bath/k5bath.png'),
-    ],
+    price: 500,
+    star: '3,1',
+    images: [
+      require('../CastleImage/c10.png'),
+      require('../CastleImage/Bedroom/c10bed.png'),
+      require('../CastleImage/Bath/c10bath.png'),
+      require('../CastleImage/Garden/c10garden.png'),
+      require('../CastleImage/Kitchen/c10kit.png'),
+    ]
   },
   {
     id: 8,
-    name: 'Neuschwanstein Castle',
-    location: 'Bavaria, Germany',
+    name: 'Yerin tamamı, Dahab, Mısır',
+    location: 'Dahab, Mısır',
     coordinate: {
-      latitude: 47.5576,
-      longitude: 10.7498,
+      latitude: 28.5000,
+      longitude: 34.5167
     },
-    star: '4,4',
-    price: 420,
-    images:[
-      require('../CastleImage/c2.png'),
-      require('../CastleImage/Bedroom/c2bed.png'),
-      require('../CastleImage/Bath/c2bath.png'),
-    ],
+    price: 500,
+    star: '3,7',
+    images: [
+      require('../DesertImage/d6.png'),
+      require('../DesertImage/Bedroom/d6bed.png'),
+      require('../DesertImage/Bath/d6bath.png'),
+      require('../DesertImage/Kitchen/d6kit.png'),
+      require('../DesertImage/Garden/d6garden.png'),
+    ]
   },
- {
+  {
     id: 9,
-    name: 'Emerald Bay Resort',
-    location: 'Bali, Endonezya',
+    name: 'Horizon, Cancún, Meksika',
+    location: 'Cancún, Meksika',
     coordinate: {
-      latitude: -8.3405,
-      longitude: 115.2455,
+      latitude: 21.1619,
+      longitude: -86.8515
     },
-    star: '4,9',
     price: 300,
-    images:[
-      require('../TropicalImage/tr7.png'),
-      require('../TropicalImage/Bedroom/tr7bed.png'),
-      require('../TropicalImage/Bath/tr7bath.png'),
-    ],
+    star: '4,3',
+    images: [
+      require('../TropicalImage/tr10.png'),
+      require('../TropicalImage/Bath/tr10bath.png'),
+      require('../TropicalImage/Garden/tr10garden.png'),
+      require('../TropicalImage/Kitchen/tr10kit.png'),
+      require('../TropicalImage/Bedroom/tr10bed.png'),
+    ]
   },
   {
     id: 10,
-    name: 'Crystal Waters Resort',
-    location: 'Cook Adaları',
+    name: 'Tüm ev, Joensuu, Finlandiya',
+    location: 'Joensuu, Finlandiya',
     coordinate: {
-      latitude: -21.2367,
-      longitude: -159.7777,
+      latitude: 62.6000,
+      longitude: 29.7667
     },
-    star: '4,2',
     price: 400,
-    images:[
-      require('../TropicalImage/tr9.png'),
-      require('../TropicalImage/Bedroom/tr9bed.png'),
-      require('../TropicalImage/Bath/tr9bath.png'),
-    ],
+    star: '3,4',
+    images: [
+      require('../NorthImage/k6.png'),
+      require('../NorthImage/Garden/k6garden.png'),
+      require('../NorthImage/Kitchen/k6kit.png'),
+      require('../NorthImage/Bedroom/k6bed.png'),
+      require('../NorthImage/Bath/k6bath.png'),
+    ]
   },
 ]
 

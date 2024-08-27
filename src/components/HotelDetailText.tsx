@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   hotelName: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 8,
   },

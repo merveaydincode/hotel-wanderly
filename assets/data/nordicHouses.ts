@@ -7,7 +7,6 @@ const nordicHouses: Hotels = [
     id: 1,
     name: 'Tüm kır evi, Kontiolahti, Finlandiya',
     location: 'Kontiolahti, Finlandiya',
-    image: require('../NorthImage/k1.png'),
     coordinate: {
       latitude: 62.7625,
       longitude: 29.8483
@@ -26,7 +25,6 @@ const nordicHouses: Hotels = [
     id: 2,
     name: 'Tüm ev, Lehmo, Finlandiya',
     location: 'Lehmo, Finlandiya',
-    image: require('../NorthImage/k2.png'),
     coordinate: {
       latitude: 62.6667,
       longitude: 29.8333
@@ -64,7 +62,6 @@ const nordicHouses: Hotels = [
     id: 4,
     name: 'Tüm kulübe, Joensuu, Finlandiya',
     location: 'Joensuu, Finlandiya',
-    image: require('../NorthImage/k4.png'),
     coordinate: {
       latitude: 62.6000,
       longitude: 29.7667
@@ -83,7 +80,6 @@ const nordicHouses: Hotels = [
     id: 5,
     name: 'Aurora Cabin, Finlandiya',
     location: 'Joensuu, Finlandiya',
-    image: require('../NorthImage/k5.png'),
     coordinate: {
       latitude: 62.6000,
       longitude: 29.7667
@@ -102,7 +98,6 @@ const nordicHouses: Hotels = [
     id: 6,
     name: 'Tüm ev, Joensuu, Finlandiya',
     location: 'Joensuu, Finlandiya',
-    image: require('../NorthImage/k6.png'),
     coordinate: {
       latitude: 62.6000,
       longitude: 29.7667
@@ -121,7 +116,6 @@ const nordicHouses: Hotels = [
     id: 7,
     name: 'Winter Wonderland, Finlandiya',
     location: 'Ilomantsi, Finlandiya',
-    image: require('../NorthImage/k7.png'),
     coordinate: {
       latitude: 62.6667,
       longitude: 30.9167
@@ -140,7 +134,6 @@ const nordicHouses: Hotels = [
     id: 8,
     name: 'Polar View, Ilomantsi, Finlandiya',
     location: 'Ilomantsi, Finlandiya',
-    image: require('../NorthImage/k8.png'),
     coordinate: {
       latitude: 62.6667,
       longitude: 30.9167
@@ -159,7 +152,6 @@ const nordicHouses: Hotels = [
     id: 9,
     name: 'Iceberg, Joensuu, Finlandiya',
     location: 'Joensuu, Finlandiya',
-    image: require('../NorthImage/k9.png'),
     coordinate: {
       latitude: 62.6000,
       longitude: 29.7667
@@ -178,7 +170,6 @@ const nordicHouses: Hotels = [
     id: 10,
     name: 'Snowfall, Joensuu, Finlandiya',
     location: 'Joensuu, Finlandiya',
-    image: require('../NorthImage/k10.png'),
     coordinate: {
       latitude: 62.6000,
       longitude: 29.7667

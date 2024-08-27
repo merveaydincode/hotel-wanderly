@@ -5,134 +5,185 @@ import { Hotels } from '../types/types';
 const desertHotels: Hotels = [
   {
     id: 1,
-    name: 'Sahara Oasis Villa',
-    location: 'Sahra Çölü, Fas',
-    image: require('../DesertImage/d1.png'),
+    name: 'Çadır içinde özel oda, Beer Milka, İsrail',
+    location: 'İsrail',
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 30.8922,
+      longitude: 34.4331
     },
     price: 350,
     star: '4,6',
-    images: undefined
+    images: [
+      require('../DesertImage/d1.png'),
+      require('../DesertImage/Bedroom/d1bed.png'),
+      require('../DesertImage/Bath/d1bath.png'),
+      require('../DesertImage/Kitchen/d1kit.png'),
+      require('../DesertImage/Garden/d1garden.png'),
+    ]
   },
   {
     id: 2,
-    name: 'Marrakech Desert Lodge',
-    location: 'Marrakeş, Fas',
-    image: require('../DesertImage/d2.png'),
+    name: 'Otel içinde oda, Wadi Rum Village, Ürdün',
+    location: 'Ürdün',
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 29.5765,
+      longitude: 35.4210
     },
     price: 450,
     star: '4,8',
-    images: undefined
+    images: [
+      require('../DesertImage/d2.png'),
+      require('../DesertImage/Bedroom/d2bed.png'),
+      require('../DesertImage/Bath/d2bath.png'),
+      require('../DesertImage/Kitchen/d2kit.png'),
+      require('../DesertImage/Garden/d2garden.png'),
+    ]
   },
   {
     id: 3,
-    name: 'Desert Mirage Retreat',
+    name: 'Wadi Rum Village, Ürdün bölgesinde oda',
     location: 'Wadi Rum, Ürdün',
-    image: require('../DesertImage/d3.png'),
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 29.5765,
+      longitude: 35.4210
     },
     price: 300,
     star: '4,2',
-    images: undefined
+    images: [
+      require('../DesertImage/d3.png'),
+      require('../DesertImage/Bedroom/d3bed.png'),
+      require('../DesertImage/Bath/d3bath.png'),
+      require('../DesertImage/Kitchen/d3kit.png'),
+      require('../DesertImage/Garden/d3garden.png'),
+    ]
   },
   {
     id: 4,
-    name: 'Dubai Desert Haven',
-    location: 'Dubai, Birleşik Arap Emirlikleri',
-    image: require('../DesertImage/d4.png'),
+    name: 'Kubbe içinde özel oda, Wadi Rum Village, Ürdün',
+    location: 'Ürdün',
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 29.5765,
+      longitude: 35.4210
     },
     price: 600,
     star: '3,1',
-    images: undefined
+    images: [
+      require('../DesertImage/d4.png'),
+      require('../DesertImage/Bedroom/d4bed.png'),
+      require('../DesertImage/Bath/d4bath.png'),
+      require('../DesertImage/Kitchen/d4kit.png'),
+      require('../DesertImage/Garden/d4garden.png'),
+    ]
   },
   {
     id: 5,
-    name: 'Oasis Desert Retreat',
-    location: 'Nevşehir, Türkiye',
-    image: require('../DesertImage/d5.png'),
+    name: 'Military Area, Suudi Arabistan bölgesinde oda',
+    location: 'Military Area, Suudi Arabistan',
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 24.7136,
+      longitude: 46.6753
     },
     price: 500,
     star: '3,4',
-    images: undefined
+    images: [
+      require('../DesertImage/d5.png'),
+      require('../DesertImage/Bedroom/d5bed.png'),
+      require('../DesertImage/Bath/d5bath.png'),
+      require('../DesertImage/Kitchen/d5kit.png'),
+      require('../DesertImage/Garden/d5garden.png'),
+    ]
   },
   {
     id: 6,
-    name: 'Sand Dunes Lodge',
-    location: 'Dakhla, Fas',
-    image: require('../DesertImage/d6.png'),
+    name: 'Yerin tamamı, Dahab, Mısır',
+    location: 'Dahab, Mısır',
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 28.5000,
+      longitude: 34.5167
     },
     price: 500,
     star: '3,7',
-    images: undefined
+    images: [
+      require('../DesertImage/d6.png'),
+      require('../DesertImage/Bedroom/d6bed.png'),
+      require('../DesertImage/Bath/d6bath.png'),
+      require('../DesertImage/Kitchen/d6kit.png'),
+      require('../DesertImage/Garden/d6garden.png'),
+    ]
   },
   {
     id: 7,
-    name: 'Saharan Dream House',
-    location: 'Sahra Çölü, Cezayir',
-    image: require('../DesertImage/d7.png'),
+    name: 'Doğa içinde pansiyon içinde özel oda, Siwa, Mısır',
+    location: 'Siwa, Mısır',
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 29.2045,
+      longitude: 25.5196
     },
     price: 600,
     star: '3,9',
-    images: undefined
+    images: [
+      require('../DesertImage/d7.png'),
+      require('../DesertImage/Bedroom/d7bed.png'),
+      require('../DesertImage/Bath/d7bath.png'),
+      require('../DesertImage/Kitchen/d7kit.png'),
+      require('../DesertImage/Garden/d7garden.png'),
+    ]
   },
   {
     id: 8,
-    name: 'Red Sands Lodge',
-    location: 'Riyad, Suudi Arabistan',
-    image: require('../DesertImage/d8.png'),
+    name: 'Kamp aracı/Karavan, Arad, İsrail',
+    location: 'Arad, İsrail',
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 31.2746,
+      longitude: 35.2061
     },
     price: 200,
     star: '4,2',
-    images: undefined
+    images: [
+      require('../DesertImage/d8.png'),
+      require('../DesertImage/Bedroom/d8bed.png'),
+      require('../DesertImage/Bath/d8bath.png'),
+      require('../DesertImage/Kitchen/d8kit.png'),
+      require('../DesertImage/Garden/d8garden.png'),
+    ]
   },
   {
     id: 9,
-    name: 'Sandstorm Retreat',
-    location: 'Lalibela, Etiyopya',
-    image: require('../DesertImage/d9.png'),
+    name: 'Tüm misafir evi, Retamim, İsrail',
+    location: 'Retamim, İsrail',
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 31.2166,
+      longitude: 34.6557
     },
     price: 500,
     star: '3,1',
-    images: undefined
+    images: [
+      require('../DesertImage/d9.png'),
+      require('../DesertImage/Bedroom/d9bed.png'),
+      require('../DesertImage/Bath/d9bath.png'),
+      require('../DesertImage/Kitchen/d9kit.png'),
+      require('../DesertImage/Garden/d9garden.png'),
+    ]
   },
   {
     id: 10,
-    name: 'Desert Sunset Lodge',
-    location: 'Tunis, Tunus',
-    image: require('../DesertImage/d10.png'),
+    name: 'Kamp aracı/Karavan, Mitzpe Ramon, İsrail',
+    location: 'Mitzpe Ramon, İsrail',
     coordinate: {
-      latitude: 0,
-      longitude: 0
+      latitude: 30.6133,
+      longitude: 34.8035
     },
     price: 400,
     star: '4,3',
-    images: undefined
+    images: [
+      require('../DesertImage/d10.png'),
+      require('../DesertImage/Bedroom/d10bed.png'),
+      require('../DesertImage/Bath/d10bath.png'),
+      require('../DesertImage/Kitchen/d10kit.png'),
+      require('../DesertImage/Garden/d10garden.png'),
+    ]
   }
 ];
+
 
 export default desertHotels;
