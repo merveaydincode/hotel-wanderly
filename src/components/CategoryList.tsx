@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   selectedCategory: {
-    backgroundColor: 'green',
+    backgroundColor: '#32CD32',
   },
   categoryText: {
     color: 'black',
