@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, Image, Dimensions, SafeAreaView, TouchableOpacity } from 'react-native';
+import { Text, FlatList, StyleSheet, Image, Dimensions, SafeAreaView, TouchableOpacity } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { Hotel } from '../../assets/types/types';

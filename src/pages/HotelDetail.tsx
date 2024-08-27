@@ -161,7 +161,7 @@ const HotelDetail: React.FC<Props> = ({ route }) => {
         <BottomSheet
           ref={bottomSheetRef}
           index={-1}
-          snapPoints={[height / 1.8, height / 1.8]} // Increased height for better visibility
+          snapPoints={[height / 1.8, height / 1.8]} 
           onClose={() => setShowBottomSheet(false)}
           enablePanDownToClose
         >

@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Text, Dimensions } from "react-native";
-import { MaterialIcons, FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons"; // Importing icons
+import { MaterialIcons, FontAwesome5 } from "@expo/vector-icons"; // Importing icons
 
 const { width, height } = Dimensions.get("window");
 

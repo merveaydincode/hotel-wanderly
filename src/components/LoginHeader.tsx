@@ -20,8 +20,6 @@ const LoginHeader = () => {
   );
 };
 
-export default LoginHeader;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -43,7 +41,7 @@ const styles = StyleSheet.create({
   title: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: width*1.5,
+    marginBottom: width * 1.5,
   },
   titleText: {
     color: 'white',
@@ -58,3 +56,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
+
+export default LoginHeader;

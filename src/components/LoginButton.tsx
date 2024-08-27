@@ -26,8 +26,8 @@ const LoginButton = ({ onPhonePress, onApplePress, showInput, phoneNumber, setPh
         <Text style={styles.loginText2}>Sign in With Apple</Text>
       </TouchableOpacity>
       <Text style={styles.register}>Henüz hesabınız yok mu? Üye Ol</Text>
-      
-      
+
+
     </View>
   )
 }
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   touch: {
-    backgroundColor: 'blue',
+    backgroundColor: 'black',
     padding: 20,
     borderRadius: 30,
     width: width / 1.1,

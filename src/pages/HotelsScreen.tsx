@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet, Image, Dimensions, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
-import { Hotels, Hotel, RootStackParamList } from '../../assets/types/types';
+import { Hotel, RootStackParamList } from '../../assets/types/types';
 import tropicalHotels from '../../assets/data/tropicalHotels';
 import desertHotels from '../../assets/data/desertHotels';
 import treehouses from '../../assets/data/treehouses';

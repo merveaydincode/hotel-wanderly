@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, ImageBackground, Dimensions, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, FlatList, ImageBackground, Dimensions, TouchableOpacity, SafeAreaView } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import CategoryList from '../components/CategoryList';
 import { Hotel } from '../../assets/types/types';
 import treehouses from '../../assets/data/treehouses';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../assets/types/types';
-import { FontAwesome, Entypo, AntDesign, EvilIcons } from '@expo/vector-icons';
+import { AntDesign, EvilIcons } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorite } from '../redux/slice/favoritesSlice';
 import { RootState } from '../redux/slice/store';
@@ -85,59 +85,58 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
         selectedCategory={selectedCategory}
         onSelectCategory={handleCategorySelect}
       />
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <View style={styles.listContainer}>
-          <FlatList
-            data={filteredHotels}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                style={styles.hotelContainer}
-                onPress={() => navigation.navigate('HotelDetail', { hotel: item })}
+
+      <View style={styles.listContainer}>
+        <FlatList
+          data={filteredHotels}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.hotelContainer}
+              onPress={() => navigation.navigate('HotelDetail', { hotel: item })}
+            >
+              <ImageBackground
+                source={item.images[0]}
+                style={styles.imageBackground}
               >
-                <ImageBackground
-                  source={item.images[0]}
-                  style={styles.imageBackground}
+                <TouchableOpacity
+                  style={styles.heartIconContainer}
+                  onPress={() => handleFavoritePress(item)}
                 >
-                  <TouchableOpacity
-                    style={styles.heartIconContainer}
-                    onPress={() => handleFavoritePress(item)}
-                  >
-                    <View style={styles.heartview}>
+                  <View style={styles.heartview}>
                     <AntDesign
                       name={favorites.find(hotel => hotel.id === item.id) ? 'heart' : 'hearto'}
                       size={24}
                       color="#FA8072"
                     />
-                    </View>
-                  </TouchableOpacity>
-                  <View style={styles.infoContainer}>
-                    <View style={styles.header}>
-                      <Text style={styles.hotelName}>{item.name}</Text>
-                    </View>
-                    <View style={styles.loc}>
-                      <EvilIcons name="location" size={22} color="white" />
-                      <Text style={styles.hotelLocation}>{item.location}</Text>
-                    </View>
-                    <View style={styles.stars}>
-                      <AntDesign name="star" size={14} color="white" />
-                      <Text style={styles.star}>{item.star}</Text>
-                    </View>
-                    <Text style={styles.hotelPrice}>{item.price}$ / gece</Text>
                   </View>
-                </ImageBackground>
-              </TouchableOpacity>
-            )}
-            ListEmptyComponent={
-              searchQuery && (
-                <View style={styles.emptyContainer}>
-                  <Text style={styles.emptyText}>Arama sonuçları bulunamadı.</Text>
+                </TouchableOpacity>
+                <View style={styles.infoContainer}>
+                  <View style={styles.header}>
+                    <Text style={styles.hotelName}>{item.name}</Text>
+                  </View>
+                  <View style={styles.loc}>
+                    <EvilIcons name="location" size={22} color="white" />
+                    <Text style={styles.hotelLocation}>{item.location}</Text>
+                  </View>
+                  <View style={styles.stars}>
+                    <AntDesign name="star" size={14} color="white" />
+                    <Text style={styles.star}>{item.star}</Text>
+                  </View>
+                  <Text style={styles.hotelPrice}>{item.price}$ / gece</Text>
                 </View>
-              )
-            }
-          />
-        </View>
-      </ScrollView>
+              </ImageBackground>
+            </TouchableOpacity>
+          )}
+          ListEmptyComponent={
+            searchQuery && (
+              <View style={styles.emptyContainer}>
+                <Text style={styles.emptyText}>Arama sonuçları bulunamadı.</Text>
+              </View>
+            )
+          }
+        />
+      </View>
     </SafeAreaView>
   );
 };
@@ -147,14 +146,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
-  scrollContainer: {
-    flexGrow: 1,
-    paddingBottom: 10,
-    paddingTop: 10,
-  },
   listContainer: {
+    flexGrow: 1,
     width: '100%',
     alignItems: 'center',
+    height: '80%',
   },
   hotelContainer: {
     width: width - 20,
@@ -175,9 +171,9 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     flexDirection: 'column',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     padding: 10,
-    position: 'relative', // Added position relative for absolute positioning of price
+    position: 'relative',
   },
   header: {
     flexDirection: 'row',
@@ -185,7 +181,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   heartview: {
- backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     padding: 10,
     borderRadius: 50,
   },

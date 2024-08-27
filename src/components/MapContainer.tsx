@@ -10,7 +10,7 @@ type Props = {
 };
 
 const MapContainer: React.FC<Props> = ({ hotel }) => {
-  // Harita başlangıç bölgesini otelin koordinatına göre ayarlama
+
   const initialRegion = {
     latitude: hotel.coordinate.latitude,
     longitude: hotel.coordinate.longitude,
