@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useRef } from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, FlatList, ScrollView, Alert } from 'react-native';
+import { useWindowDimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, ScrollView, Alert } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../assets/types/types';
@@ -19,8 +20,6 @@ type Props = {
   navigation: HotelDetailNavigationProp;
 };
 
-const { width, height } = Dimensions.get('window');
-
 const HotelDetail: React.FC<Props> = ({ route }) => {
   const { hotel } = route.params;
   const [showBottomSheet, setShowBottomSheet] = useState(false);
@@ -30,6 +29,7 @@ const HotelDetail: React.FC<Props> = ({ route }) => {
   const [reservationConfirmed, setReservationConfirmed] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const { width, height } = useWindowDimensions();
   const flatListRef = useRef<FlatList<any>>(null);
   const bottomSheetRef = useRef<BottomSheet>(null);
 
@@ -102,10 +102,12 @@ const HotelDetail: React.FC<Props> = ({ route }) => {
     viewAreaCoveragePercentThreshold: 50,
   };
 
+  const bottomSheetHeight = height * 0.7;
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
-        <View style={styles.imageContainer}>
+        <View style={[styles.imageContainer, { height: height / 2.3 }]}>
           <FlatList
             ref={flatListRef}
             data={hotel.images}
@@ -116,26 +118,26 @@ const HotelDetail: React.FC<Props> = ({ route }) => {
             decelerationRate='fast'
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
-              <Image source={item} style={styles.image} />
+              <Image source={item} style={[styles.image, { width, height: '100%' }]} />
             )}
             showsHorizontalScrollIndicator={false}
             onViewableItemsChanged={onViewableItemsChanged}
             viewabilityConfig={viewabilityConfig}
           />
          
-         <TouchableOpacity
-  style={[styles.buttonContainer, styles.rightButton]}
-  onPress={() => flatListRef.current?.scrollToIndex({ index: Math.min(currentIndex + 1, hotel.images.length - 1), animated: true })}
->
-  <MaterialIcons name="chevron-right" size={30} color="black" />
-</TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.buttonContainer, styles.rightButton]}
+            onPress={() => flatListRef.current?.scrollToIndex({ index: Math.min(currentIndex + 1, hotel.images.length - 1), animated: true })}
+          >
+            <MaterialIcons name="chevron-right" size={30} color="black" />
+          </TouchableOpacity>
 
-<TouchableOpacity
-  style={[styles.buttonContainer, styles.leftButton]}
-  onPress={() => flatListRef.current?.scrollToIndex({ index: Math.max(currentIndex - 1, 0), animated: true })}
->
-  <MaterialIcons name="chevron-left" size={30} color="black" />
-</TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.buttonContainer, styles.leftButton]}
+            onPress={() => flatListRef.current?.scrollToIndex({ index: Math.max(currentIndex - 1, 0), animated: true })}
+          >
+            <MaterialIcons name="chevron-left" size={30} color="black" />
+          </TouchableOpacity>
         </View>
 
         <HotelDetailText hotel={hotel} />
@@ -147,7 +149,7 @@ const HotelDetail: React.FC<Props> = ({ route }) => {
       </ScrollView>
 
       <View style={styles.checkout}>
-        <Text style={styles.price}>{hotel.price}$</Text>
+        <Text style={styles.price}>${hotel.price}</Text>
         <Text style={styles.night}>/gece</Text>
         <TouchableOpacity
           style={styles.reserveButton}
@@ -155,13 +157,13 @@ const HotelDetail: React.FC<Props> = ({ route }) => {
         >
           <Text style={styles.reserveText}>Rezervasyon Yap</Text>
         </TouchableOpacity>
-        </View>
+      </View>
 
       {showBottomSheet && (
         <BottomSheet
           ref={bottomSheetRef}
           index={-1}
-          snapPoints={[height / 1.8, height / 1.8]} 
+          snapPoints={[bottomSheetHeight, bottomSheetHeight]}
           onClose={() => setShowBottomSheet(false)}
           enablePanDownToClose
         >
@@ -177,6 +179,7 @@ const HotelDetail: React.FC<Props> = ({ route }) => {
                   markedDates={getMarkedDates()}
                   onDayPress={handleDayPress}
                   minDate={new Date().toISOString().split('T')[0]}
+                  style={styles.calendar}
                 />
                
                 <Text style={styles.label}>Kişi Sayısı</Text>
@@ -189,11 +192,6 @@ const HotelDetail: React.FC<Props> = ({ route }) => {
                     <MaterialIcons name="add" size={24} color="white" />
                   </TouchableOpacity>
                 </View>
-                {totalPrice !== null && (
-                  <Text style={styles.totalPrice}>
-                    Toplam: {totalPrice}$
-                  </Text>
-                )}
                
                 <TouchableOpacity style={styles.button} onPress={handleReservation}>
                   <Text style={styles.buttonText}>Onayla</Text>
@@ -210,136 +208,130 @@ const HotelDetail: React.FC<Props> = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    paddingBottom: 80,
   },
   scrollViewContent: {
-    flexGrow: 1,
+    flexGrow: 1,  
   },
   imageContainer: {
     position: 'relative',
-    height: height / 2.3,
   },
   image: {
-    width,
     height: '100%',
-    resizeMode: 'cover',
-    borderRadius: 30,
   },
   buttonContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.6)', 
-    borderRadius: 20, 
-    padding: 8,
-    justifyContent: 'center', 
-    alignItems: 'center',
-  },
-  rightButton: {
     position: 'absolute',
-    right: 10,
     top: '50%',
     transform: [{ translateY: -15 }],
-    zIndex: 1,
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    borderRadius: 20,
   },
   leftButton: {
+    left: 20,
+  },
+  rightButton: {
+    right: 20,
+  },
+  checkout: {
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     position: 'absolute',
-    left: 10,
-    top: '50%',
-    transform: [{ translateY: -15 }],
-    zIndex: 1,
+    flexDirection: 'row',
+    bottom: 0,
+    left: 40,
+    right: 0,
+    padding: 20,
+
+  },
+  price: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'black',
+    paddingBottom: 10,
+    right: 35,
+  },
+  night: {
+    fontSize: 16,
+    color: 'gray',
+    position: 'absolute',
+    left: 48,
+    bottom: 29,
+  },
+  reserveButton: {
+    backgroundColor: '#32CD32',
+    borderRadius: 25,
+    alignItems: 'center',
+    position: 'absolute',
+    padding: 15,
+    width: 200,
+    bottom: 20,
+    right: 20,
+  },
+  reserveText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   separator: {
     height: 1,
     backgroundColor: '#ddd',
     marginVertical: 10,
   },
-  checkout: {
-    padding: 10,
-    backgroundColor: '#fff',
-    borderTopWidth: 1,
-    borderTopColor: '#ddd',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: height / 8,
-  },
-  price: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    left: 20,
-  },
-  night: {
-    fontSize: 17,
-    right: 23,
-  },
-
-  reserveButton: {
-    backgroundColor: '#32CD32',
-    padding: 15,
-    borderRadius: 10,
-    width: '50%',
-    alignSelf: 'flex-end',
-    bottom: 18,
-    right:  20,
-  },
-  reserveText: {
-    color: '#fff',
-    fontSize: 18,
-    textAlign: 'center',
-    fontWeight: 'bold',
-  },
   bottomSheetContent: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 20,
   },
   bottomSheetInnerContent: {
     flex: 1,
+    justifyContent: 'space-between',
+  },
+  calendar: {
+    
   },
   label: {
-    fontSize: 16,
+    fontSize: 18,
+    fontWeight: '500',
+    alignSelf: 'center',
   },
   guestSelector: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 10,
+    alignSelf: 'center'
   },
   guestButton: {
     backgroundColor: '#32CD32',
-    padding: 5,
+    padding: 7,
     borderRadius: 5,
-    marginHorizontal: 5,
+    marginHorizontal: 13,
   },
   guestCount: {
     fontSize: 18,
-    marginHorizontal: 10,
-  },
-  totalPrice: {
-    fontSize: 18,
-    fontWeight: '600',
-    position: 'absolute',
-    bottom: 70,
-    alignSelf: 'flex-end',
+    fontWeight: 'bold',
+    top: 5,
   },
   button: {
     backgroundColor: '#32CD32',
     padding: 15,
-    borderRadius: 25,
-    marginTop: 10,
+    borderRadius: 15,
+    alignItems: 'center',
+    marginBottom: 40,
   },
   buttonText: {
-    color: '#fff',
-    textAlign: 'center',
+    color: 'white',
     fontSize: 18,
+    fontWeight: 'bold',
   },
   confirmationContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   confirmationText: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
-    marginTop: 10,
+    color: '#32CD32',
+    marginTop: 20,
   },
 });
 
-
 export default HotelDetail;
+

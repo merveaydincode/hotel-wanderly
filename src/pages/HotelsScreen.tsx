@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   categoryContainer: {
-    marginBottom: 20,
     padding: 10,
     shadowColor: 'black',
     shadowOpacity: 0.3,

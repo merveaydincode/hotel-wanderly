@@ -24,7 +24,7 @@ const ProfileScreen = () => {
           </TouchableOpacity>
           <TouchableOpacity style={styles.data}>
           <Fontisto name="map" size={24} color="black" style={styles.icon}/>
-            <Text style={styles.text}>Yolculuk Haritan</Text>
+            <Text style={styles.text}>Yolculuk</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.data}>
           <MaterialIcons name="settings" size={24} color="black" style={styles.icon}/>

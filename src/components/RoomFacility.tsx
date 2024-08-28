@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   facility: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "white",
     padding: 10,
     margin: 2,
     borderRadius: 20,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    padding: 10,
+    marginVertical: 10,
   },
 });
 
